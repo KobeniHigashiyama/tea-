@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h2>Управление пользователями</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Роль</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ "Администратор" if user.is_admin else "Пользователь" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/admin/users/create">Добавить пользователя</a>
+{% endblock %}

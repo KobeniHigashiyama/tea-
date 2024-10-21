@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+<h2>Управление товарами (чай)</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tea in teas %}
+        <tr>
+            <td>{{ tea.id }}</td>
+            <td>{{ tea.name }}</td>
+            <td>{{ tea.description }}</td>
+            <td>{{ tea.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/admin/tea/create">Добавить товар</a>
+{% endblock %}
